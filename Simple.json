@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
-import NewItem from './NewItem'
-
-export default class News extends Component {
-    articles = [
+{
+    "status": "ok",
+    "totalResults": 10,
+    "articles": [
         {
             "source": {
                 "id": "bbc-news",
@@ -134,30 +133,4 @@ export default class News extends Component {
             "content": "Sidney Poitier, the first black man to win a best actor Oscar, has died at 94.\r\nThe Hollywood star's death was confirmed to the BBC by the office of Fred Mitchell, the Bahamas' minister of foreign af… [+573 chars]"
         }
     ]
-    constructor() {
-        super();
-        console.log("Hello I am a construtor form news Component....")
-        this.state = {
-            articles: this.articles,
-            loading: false
-        }
-    }
-
-    render() {
-        return (
-            <div className='container my-3'>
-                <h2 className='text-center mb-4'>News App-Top Headlines</h2>
-                {/* {this.state.articles.map((element) => { console.log(element) })} */}
-                <div className='row'>
-                    {this.state.articles.map((element) => {
-                        return <div className='col-md-4' key={element.url}>
-                            <NewItem title={element.title.slice(0, 45)} description={element.description.slice(0, 55)} imageUrl={element.urlToImage} newsUrl={element.url} />
-                        </div>
-                    })}
-
-
-                </div>
-            </div>
-        )
-    }
 }
