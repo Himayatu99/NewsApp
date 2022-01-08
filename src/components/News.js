@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import NewItem from './NewItem'
 
 export default class News extends Component {
+    //For pactics 
     articles = [
         {
             "source": {
@@ -136,12 +137,18 @@ export default class News extends Component {
     ]
     constructor() {
         super();
-        console.log("Hello I am a construtor form news Component....")
+        // console.log("Hello I am a construtor form news Component....")
         this.state = {
             articles: this.articles,
             loading: false
         }
     }
+    // async componentDidMount() {
+    //     let k = "https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=4cc964e83e894ae4a523afb0bfbec6c9";
+    //     let data = await fetch(k);
+    //     let parseData = data.json;
+    //     this.setState({ articles: parseData.articles })
+    // }
 
     render() {
         return (
@@ -151,7 +158,7 @@ export default class News extends Component {
                 <div className='row'>
                     {this.state.articles.map((element) => {
                         return <div className='col-md-4' key={element.url}>
-                            <NewItem title={element.title.slice(0, 45)} description={element.description.slice(0, 55)} imageUrl={element.urlToImage} newsUrl={element.url} />
+                            <NewItem title={element.title ? element.title.slice(0, 45) : ""} description={element.description ? element.description.slice(0, 55) : ""} imageUrl={element.urlToImage} newsUrl={element.url} />
                         </div>
                     })}
 
